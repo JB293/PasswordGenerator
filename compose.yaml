@@ -1,0 +1,22 @@
+services:
+  # Image officielle et stable de l'API Zxcvbn
+  validateur-securite:
+    image: wcjr/zxcvbn-api:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - reseau-devops
+
+  # Ton application CLI Java principale
+  app-generateur:
+    build: .
+    depends_on:
+      - validateur-securite
+    stdin_open: true # Permet de garder le terminal ouvert pour tes saisies
+    tty: true        # Active l'interactivité CLI dans la console
+    networks:
+      - reseau-devops
+
+networks:
+  reseau-devops:
+    driver: bridge

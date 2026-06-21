@@ -6,7 +6,7 @@ WORKDIR /app
 COPY src/ ./src/
 
 # Compilation de toutes les classes Java du projet
-RUN javac -d out src/Main.java src/generateur/Generateur_mot_de_passe.java src/generateur/ValidateurDocker.java
+RUN javac -d out src/main/java/Main.java src/main/java/generateur/Generateur_mot_de_passe.java src/main/java/generateur/ValidateurDocker.java
 
 # Étape 2 : Image finale contenant uniquement l'environnement d'exécution (JRE)
 FROM eclipse-temurin:21-jre
