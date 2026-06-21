@@ -109,7 +109,7 @@ public class Main {
     private static boolean demanderOption(Scanner sc, String message) {
         while (true) {
             System.out.print(message + " (o/n) : ");
-            String reponse = sc.nextLine().trim().toLowerCase();
+            String reponse = sc.next().trim().toLowerCase();
             if (reponse.equals("o") || reponse.equals("oui")) {
                 return true;
             } else if (reponse.equals("n") || reponse.equals("non")) {
